@@ -1,32 +1,59 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Latest Covid Cases</router-link> |
-      <router-link to="/toptencases">Top Ten Covid Cases</router-link>
-    </div>
-    <router-view/>
+  <div>
+    <nav
+      class="bg-white shadow fixed max-w-screen-md z-10 mx-auto inset-x-0 top-0 flex justify-between items-center"
+    >
+      <a
+        href="#"
+        class="font-extrabold m-3 uppercase inline-flex hover:text-pink-700 transition-all duration-500"
+      >
+        COVID-19 UPDATE
+      </a>
+
+      <button id="mobileMenuButton" class="p-3 focus:outline-none md:hidden" title="Open side menu">
+        <!-- SVG For "x" button -->
+        <svg
+          id="mobileMenuButtonClose"
+          class="w-6 h-6 hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+        <!-- SVG For "Menu burger" button -->
+        <svg
+          id="mobileMenuButtonOpen"
+          class="w-6 h-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+
+      <!-- List of nav item -->
+      <div
+        id="sideMenuHideOnMobile"
+        class="bg-white font-semibold z-10 rounded-bl-md flex absolute top-0 right-0 transition-all duration-500 transform translate-x-0 w-1/2 md:w-auto px-3 md:px-0 flex-col md:flex-row -translate-y-full md:translate-y-0 md:mt-1 md:items-center md:mx-1 md:uppercase"
+      >
+        <router-link to="/" class="mx-0 sm:mx-2 my-2 border-b-2 border-transparent hover:border-pink-600 hover:text-pink-700 transition-all duration-500 py-1 sm:p-0">Latest Covid Cases</router-link>
+        <router-link to="/toptencases" class="mx-0 sm:mx-2 my-2 border-b-2 border-transparent hover:border-pink-600 hover:text-pink-700 transition-all duration-500 py-1 sm:p-0">Top Ten Covid Cases</router-link>
+      </div>
+    </nav>
+    <router-view />
   </div>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
