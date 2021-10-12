@@ -1,39 +1,32 @@
 <template>
-  <div>
-    <center>
-      <h1>{{ country_rank }}</h1>
-      <h2>{{ country_name }}</h2>
-      <h3>Total Cases : {{ total_cases }}</h3>
-      <table id="cases">
+  <div class="mt-20 p-6 rounded-lg bg-white mx-auto max-w-sm text-center shadow-md">
+    <h1 class="mt-4 text-4xl font-bold">{{ country_rank }}</h1>
+    <h2 class="mt-4 text-3xl font-bold">{{ country_name }}</h2>
+    <h3 class="mt-4 text-xl text-red-400 font-bold tracking-wide">Total Cases : {{ total_cases }}</h3>
+      <table class="mt-4 table w-64 mx-auto" id="cases">
         <tr>
-          <td>New Cases</td>
-          <td>{{ new_cases }}</td>
+          <td class="text-left font-semibold">New Cases</td>
+          <td class="text-right tracking-wide">{{ new_cases }}</td>
         </tr>
         <tr>
-          <td>Total Deaths</td>
-          <td>{{ new_deaths }}</td>
+          <td class="text-left font-semibold">Total Deaths</td>
+          <td class="text-right tracking-wide">{{ new_deaths }}</td>
         </tr>
         <tr>
-          <td>Total Deaths</td>
-          <td>{{ total_deaths }}</td>
+          <td class="text-left font-semibold">Total Deaths</td>
+          <td class="text-right tracking-wide">{{ total_deaths }}</td>
         </tr>
         <tr>
-          <td>Total Recovered</td>
-          <td>{{ total_recovered }}</td>
+          <td class="text-left font-semibold">Total Recovered</td>
+          <td class="text-right tracking-wide">{{ total_recovered }}</td>
         </tr>
       </table>
-      <br />
-      <br />
-      <br />
-      <select id="country_select" v-model="country_select">
-        <option v-for="(country, key) in countries" :value="country" :key="key">
-          {{ country }}
-        </option>
-      </select>
-      <br />
-      <br />
-      <button @click="changeCountry">Change Country</button>
-    </center>
+    <select class="mt-10 w-64 p-1 border-gray-400 border-2 rounded-lg" id="country_select" v-model="country_select">
+      <option v-for="(country, key) in countries" :value="country" :key="key">
+        {{ country }}
+      </option>
+    </select>
+    <button class="mt-6 px-4 py-2 rounded-lg bg-pink-500 text-white shadow-md font-semibold text-sm inline-block tracking-wider hover:bg-pink-400 focus:bg-pink-600" @click="changeCountry">Change Country</button>
   </div>
 </template>
 
@@ -102,22 +95,3 @@ export default {
   },
 };
 </script>
-
-<style>
-table#cases {
-  width: 300px;
-}
-
-table#cases td:nth-child(1) {
-  font-weight: bold;
-}
-
-table#cases td:nth-child(2) {
-  text-align: right;
-}
-
-select#country_select {
-  padding: 5px;
-  width: 300px;
-}
-</style>
